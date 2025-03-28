@@ -1,10 +1,11 @@
 import { uploadImagesUsingPost } from '@/services/imgManageSystem/minIoController';
 import { getTreeTagsUsingGet } from '@/services/imgManageSystem/tagController';
-import { PlusOutlined } from '@ant-design/icons';
+import {InboxOutlined, PlusOutlined} from '@ant-design/icons';
 import { PageContainer, ProFormText } from '@ant-design/pro-components';
 import { ProForm, ProFormSelect } from '@ant-design/pro-form/lib';
 import { Form, message, UploadFile, UploadProps } from 'antd';
 import Upload, { RcFile } from 'antd/es/upload';
+import Dragger from 'antd/es/upload/Dragger';
 import React, { useEffect, useState } from 'react';
 
 type FormValues = {
@@ -141,20 +142,36 @@ const ImageUpload: React.FC = ({}) => {
           valuePropName="fileList"
           getValueFromEvent={(e) => e?.fileList}
         >
-          <Upload
-            name="file"
-            listType="picture-card"
-            fileList={fileList}
-            beforeUpload={beforeUpload}
-            onChange={handleImageChange}
-            multiple={true}
-            accept="image/*"
-          >
-            <div>
-              <PlusOutlined />
-              <div style={{ marginTop: 8 }}>上传图片</div>
-            </div>
-          </Upload>
+          <Dragger name="file"
+                   listType="picture-card"
+                   fileList={fileList}
+                   beforeUpload={beforeUpload}
+                   onChange={handleImageChange}
+                   multiple={true}
+                   accept="image/*">
+            <p className="ant-upload-drag-icon">
+              <InboxOutlined />
+            </p>
+            <p className="ant-upload-text">Click or drag file to this area to upload</p>
+            <p className="ant-upload-hint">
+              Support for a single or bulk upload. Strictly prohibited from uploading company data or other
+              banned files.
+            </p>
+            {/*<Upload*/}
+            {/*  name="file"*/}
+            {/*  listType="picture-card"*/}
+            {/*  fileList={fileList}*/}
+            {/*  beforeUpload={beforeUpload}*/}
+            {/*  onChange={handleImageChange}*/}
+            {/*  multiple={true}*/}
+            {/*  accept="image/*"*/}
+            {/*>*/}
+            {/*  <div>*/}
+            {/*    <PlusOutlined />*/}
+            {/*    <div style={{ marginTop: 8 }}>上传图片</div>*/}
+            {/*  </div>*/}
+            {/*</Upload>*/}
+          </Dragger>
         </Form.Item>
       </ProForm>
     </PageContainer>
