@@ -1,10 +1,10 @@
 import { uploadImagesUsingPost } from '@/services/imgManageSystem/minIoController';
 import { getTreeTagsUsingGet } from '@/services/imgManageSystem/tagController';
-import {InboxOutlined, PlusOutlined} from '@ant-design/icons';
+import { InboxOutlined } from '@ant-design/icons';
 import { PageContainer, ProFormText } from '@ant-design/pro-components';
 import { ProForm, ProFormSelect } from '@ant-design/pro-form/lib';
 import { Form, message, UploadFile, UploadProps } from 'antd';
-import Upload, { RcFile } from 'antd/es/upload';
+import { RcFile } from 'antd/es/upload';
 import Dragger from 'antd/es/upload/Dragger';
 import React, { useEffect, useState } from 'react';
 
@@ -57,6 +57,7 @@ const ImageUpload: React.FC = ({}) => {
     try {
       const response = await getTreeTagsUsingGet();
       // console.log(response);
+      // @ts-ignore
       setTreeData(convertTreeData(response.data));
     } catch (error) {
       console.error('标签加载失败:', error);
@@ -70,6 +71,7 @@ const ImageUpload: React.FC = ({}) => {
     try {
       setLoading(true);
       const fileData: any[] = [];
+      // @ts-ignore
       const validFiles = values.file
         .map((file) => file.originFileObj) // 提取原始文件
         .filter((file): file is File => !!file); // 类型守卫过滤无效项

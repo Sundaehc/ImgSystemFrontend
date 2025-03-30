@@ -18,9 +18,11 @@ export default [
       { path: '/admin', redirect: '/admin/tag'},
       { name: '标签管理', icon: 'table', path: '/admin/tag', component: './Admin/Tag' },
       { name: '图片上传', icon: 'table', path: '/admin/image', component: './Admin/Image' },
+      { name: '图片下载', icon: 'table', path: '/admin/image/download', component: './Admin/Image/Download' },
     ],
   },
 
   { path: '/', redirect: '/welcome' },
   { path: '*', layout: false, component: './404' },
 ];
+

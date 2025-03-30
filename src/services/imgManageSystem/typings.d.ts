@@ -77,20 +77,18 @@ declare namespace API {
     message?: string;
   };
 
-  type batchDownloadUsingPOSTParams = {
-    /** productId */
-    productId?: string;
-    /** tagId */
-    tagId?: number;
-  };
-
   type DeleteRequest = {
     id?: number;
   };
 
-  type downloadImageUsingPOSTParams = {
+  type downloadImageUsingGETParams = {
     /** fileName */
     fileName?: string;
+  };
+
+  type DownLoadRequest = {
+    productId?: string;
+    tagId?: number;
   };
 
   type getTagsByIdUsingGETParams = {
