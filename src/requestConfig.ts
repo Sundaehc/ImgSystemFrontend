@@ -71,7 +71,8 @@ export const requestConfig: RequestConfig = {
         // 错误处理（直接读取响应体）
         try {
           // 尝试读取错误内容
-          const errorText = await rawResponse.text();
+          const errorText = await rawResponse.responseText();
+          console.log(errorText);
 
           // 尝试解析JSON错误
           try {

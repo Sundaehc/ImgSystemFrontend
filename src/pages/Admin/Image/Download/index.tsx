@@ -4,7 +4,6 @@ import { PageContainer, ProFormText } from '@ant-design/pro-components';
 import { ProForm, ProFormSelect } from '@ant-design/pro-form/lib';
 import { Button, Form, message } from 'antd';
 import React, { useEffect, useState } from 'react';
-import {request} from "@umijs/max";
 import {batchDownloadUsingPost} from "@/services/imgManageSystem/minIoController";
 
 type DownLoadParams = {
@@ -19,7 +18,7 @@ const ImageDownload: React.FC = ({}) => {
 
   const [value, setValue] = useState<string>();
 
-  // 下拉框更改
+  // 标签下拉框更改
   const onChange = (newValue: string) => {
     // console.log(newValue);
     setValue(newValue);
@@ -83,6 +82,7 @@ const ImageDownload: React.FC = ({}) => {
         form.resetFields();
       }
     } catch (error) {
+      // @ts-ignore
       message.error(error.message);
     }finally {
       setLoading(false);

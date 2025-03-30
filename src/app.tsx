@@ -1,10 +1,11 @@
-import { AvatarDropdown,  Footer } from '@/components';
+import { AvatarDropdown, Footer } from '@/components';
 import type { RunTimeLayoutConfig } from '@umijs/max';
-import { history} from '@umijs/max';
-import {requestConfig} from './requestConfig';
-import {getLoginUserUsingGet} from "@/services/imgManageSystem/userController";
-import defaultSettings from "../config/defaultSettings";
-const isDev = process.env.NODE_ENV === 'development';
+import { history } from '@umijs/max';
+import { requestConfig } from './requestConfig';
+import { getLoginUserUsingGet } from '@/services/imgManageSystem/userController';
+import defaultSettings from '../config/defaultSettings';
+
+// const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 
 /**

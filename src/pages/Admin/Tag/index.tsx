@@ -137,7 +137,7 @@ const TableList: React.FC = () => {
       valueType: 'text',
     },
     {
-      title: '父标签id',
+      title: '父级标签',
       dataIndex: 'parentId',
       valueType: 'text',
     },
